@@ -49,8 +49,9 @@ func main() {
 				for _, tag := range *group.Tags {
 					if tag.Caption == tagCaption {
 						return c.Render("tag", fiber.Map{
-							"Title": title,
-							"Tag":   tag,
+							"Title":        title,
+							"Tag":          tag,
+							"GroupCaption": groupCaption,
 						})
 					}
 				}

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="container-section">
             <a class="home-btn" onclick="goTo('/')">⬅️Go Back</a>
-            <div class="sub-header">🔵 {{.Tag.Caption}}</div>
+            <div class="sub-header">🔵 {{.GroupCaption}} - {{.Tag.Caption}}</div>
             <div class="flex-container">
                 {{range .Tag.Links}}
                 <div onclick="goToNewTab('{{.Link}}')" class="flex-item">
