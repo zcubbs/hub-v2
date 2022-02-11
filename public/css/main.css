@@ -138,6 +138,8 @@ margin-bottom: 18px;
 font-weight: 500;
 font-size: 1.3rem;
 line-height: 2.3625rem;
+    border-top: 2px solid #eee;
+    padding-top: 20px;
 }
 
 .flex-container {
