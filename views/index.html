@@ -1,15 +1,21 @@
 {{template "partials/header" .}}
 
+<div class="disclaimer">
+    {{.Disclaimer}}
+</div>
 <ul>
     <div class="container">
         <div class="container-section">
             {{range .Groups}}
             {{$groupCaption := .Caption}}
-            <div class="sub-header">🔰 {{.Caption}}</div>
+            <div class="sub-header">
+                <span><img class="bullet" src="/assets/bullet.png"/></span>
+                {{.Caption}}
+            </div>
             <div class="flex-container">
                 {{range .Tags}}
                 <div onclick="goTo('/tag/{{$groupCaption | urlquery  }}/{{.Caption | urlquery  }}')" class="flex-item">
-                    <span class="icon">🔵</span>
+                    <span class="icon" >🔵</span>
                     <span class="caption">{{.Caption}}</span>
                 </div>
                 {{end}}

@@ -15,6 +15,7 @@ import (
 func main() {
 	groups := loadGroupsFromYaml()
 	title := getTitle()
+	disclaimer := getDisclaimer()
 	engine := html.New("./views", ".html")
 
 	app := fiber.New(fiber.Config{
@@ -28,8 +29,9 @@ func main() {
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.Render("index", fiber.Map{
-			"Title":  title,
-			"Groups": groups,
+			"Title":      title,
+			"Disclaimer": disclaimer,
+			"Groups":     groups,
 		})
 	})
 
@@ -56,8 +58,9 @@ func main() {
 		}
 
 		return c.Render("index", fiber.Map{
-			"Title": title,
-			"Tags":  groups,
+			"Title":      title,
+			"Disclaimer": disclaimer,
+			"Tags":       groups,
 		})
 
 	})
@@ -96,6 +99,14 @@ func isDevMode() bool {
 	}
 	boolVal, _ := strconv.ParseBool(devMode)
 	return boolVal
+}
+
+func getDisclaimer() string {
+	appTitle := os.Getenv("APP_DISCLAIMER")
+	if appTitle == "" {
+		appTitle = "Link Hub For everyone."
+	}
+	return appTitle
 }
 
 func getTitle() string {
