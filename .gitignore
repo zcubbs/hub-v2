@@ -18,6 +18,6 @@
 
 /.idea
 *.iml
-
+hub-v2.iml
 !/public/css/main.css.fiber.gz
 !/.env
