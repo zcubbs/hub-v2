@@ -2,6 +2,7 @@
 
 <div class="disclaimer">
     {{.Disclaimer}}
+    {{.CustomHtml}}
 </div>
 <ul>
     <div class="container">
@@ -9,7 +10,7 @@
             {{range .Groups}}
             {{$groupCaption := .Caption}}
             <div class="sub-header">
-                <span><img class="bullet" src="/assets/bullet.png"/></span>
+                <span><img class="bullet" src="/assets/bullet.png" alt=""/></span>
                 {{.Caption}}
             </div>
             <div class="flex-container">
