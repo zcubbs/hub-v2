@@ -82,6 +82,8 @@ func main() {
 					if tag.Caption == tagCaption {
 						return c.Render("tag", fiber.Map{
 							"Title":        title,
+							"SubTitle":     subTitle,
+							"Logo":         logo,
 							"Tag":          tag,
 							"GroupCaption": groupCaption,
 						})
@@ -92,7 +94,11 @@ func main() {
 
 		return c.Render("index", fiber.Map{
 			"Title":      title,
+			"SubTitle":   subTitle,
+			"Logo":       logo,
 			"Disclaimer": disclaimer,
+			"ShowGithub": showGithub,
+			"CustomHtml": template.HTML(customHTML),
 			"Tags":       groups,
 		})
 
