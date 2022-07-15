@@ -1,4 +1,4 @@
-FROM golang:1.16-alpine AS builder
+FROM --platform=$BUILDPLATFORM golang:1.16-alpine AS builder
 
 # Move to working directory (/build).
 WORKDIR /build
@@ -11,8 +11,8 @@ RUN go mod download
 COPY . .
 
 # Set necessary environmet variables needed for our image and build the API server.
-ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
-RUN go build -ldflags="-s -w" -o hub .
+ARG TARGETOS TARGETARCH
+RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go build -ldflags="-s -w" -o hub .
 
 FROM alpine:3.14
 
