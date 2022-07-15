@@ -11,7 +11,8 @@ RUN go mod download
 COPY . .
 
 # Set necessary environmet variables needed for our image and build the API server.
-ARG TARGETOS TARGETARCH
+ARG TARGETOS
+ARG TARGETARCH
 RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go build -ldflags="-s -w" -o hub .
 
 FROM alpine:3.14
